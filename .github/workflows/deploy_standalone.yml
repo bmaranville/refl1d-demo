@@ -19,7 +19,7 @@ jobs:
         python-version: ["3.11"]
 
     steps:
-    - uses: conda-incubator/setup-miniconda@v2
+    - uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
@@ -53,7 +53,7 @@ jobs:
         echo "REFL1D_DIST=$(realpath dist)" >> $GITHUB_ENV
         echo "REFL1D_WHEEL_FILE=$(ls dist)" >> $GITHUB_ENV
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - name: initialize bumps client
@@ -61,6 +61,7 @@ jobs:
         npm i
         npm link
         pwd
+        ls -al .
         ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: bumps/bumps/webview/client
     - name: initialize refl1d client
@@ -74,11 +75,9 @@ jobs:
     - name: npm initialize self
       run: |
         npm i
+        ls -al $GITHUB_WORKSPACE/bumps/bumps/webview/client/
         npm link $GITHUB_WORKSPACE/bumps/bumps/webview/client
-        ls -l /usr/share/miniconda3/envs/pyodide/lib/node_modules/
-        ls -al /usr/share/miniconda3/envs/pyodide/lib/node_modules/bumps-webview-client/
-        npm link bumps-webview-client
-        npm link refl1d-webview-client
+        npm link $GITHUB_WORKSPACE/refl1d/refl1d/webview/client
     - name: build client
       id: build_client
       run: |
