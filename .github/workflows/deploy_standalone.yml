@@ -74,6 +74,7 @@ jobs:
       run: |
         npm i
         ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
+        ls -al /usr/share/miniconda3/envs/pyodide/lib/node_modules/bumps-webview-client/
         npm link bumps-webview-client
         npm link refl1d-webview-client
     - name: build client
