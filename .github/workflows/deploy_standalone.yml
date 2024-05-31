@@ -62,13 +62,11 @@ jobs:
         npm link
         pwd
         ls -al .
-        ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: bumps/bumps/webview/client
     - name: initialize refl1d client
       run: |
         npm i
         npm link
-        ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: refl1d/refl1d/webview/client
     - name: checkout code
       uses: actions/checkout@v4
