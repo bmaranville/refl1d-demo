@@ -60,6 +60,7 @@ jobs:
       run: |
         npm i
         npm link
+        pwd
         ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: bumps/bumps/webview/client
     - name: initialize refl1d client
@@ -73,6 +74,7 @@ jobs:
     - name: npm initialize self
       run: |
         npm i
+        npm link $GITHUB_WORKSPACE/bumps/bumps/webview/client
         ls -l /usr/share/miniconda3/envs/pyodide/lib/node_modules/
         ls -al /usr/share/miniconda3/envs/pyodide/lib/node_modules/bumps-webview-client/
         npm link bumps-webview-client
