@@ -60,17 +60,20 @@ jobs:
       run: |
         npm i
         npm link
+        ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: bumps/bumps/webview/client
     - name: initialize refl1d client
       run: |
         npm i
         npm link
+        ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
       working-directory: refl1d/refl1d/webview/client
     - name: checkout code
       uses: actions/checkout@v4
     - name: npm initialize self
       run: |
         npm i
+        ls /usr/share/miniconda3/envs/pyodide/lib/node_modules/
         npm link bumps-webview-client
         npm link refl1d-webview-client
     - name: build client
