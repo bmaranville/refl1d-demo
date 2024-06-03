@@ -84,7 +84,7 @@ jobs:
         cp $BUMPS_DIST/$BUMPS_WHEEL_FILE public/wheels/
         cp $REFL1D_DIST/$REFL1D_WHEEL_FILE public/wheels/
         rm -rf dist
-        npm run build
+        npm run build -- --sourcemap
         echo "deploy_path=$(realpath dist)" >> $GITHUB_OUTPUT
       env:
          CI: ""
